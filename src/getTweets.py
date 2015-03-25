@@ -5,6 +5,7 @@ Idea for this project from:
 http://www.danielforsyth.me/analyzing-a-nhl-playoff-game-with-twitter/
 '''
 
+
 import tweepy
 import pymongo
 import sys
@@ -30,7 +31,7 @@ class customStreamListener(tweepy.StreamListener):
         super(tweepy.StreamListener, self).__init__()
         # Set up database
         client = MongoClient()
-        self.db = client.thedress
+        self.db = client.SportsCenter
 
     def on_status(self, status):
         print status.text , "\n"
@@ -53,7 +54,7 @@ class customStreamListener(tweepy.StreamListener):
         return True # Don't kill the stream
 
 sapi = tweepy.streaming.Stream(auth, customStreamListener(api))
-sapi.filter(track=['thedress'])
+sapi.filter(track=['hardtoguard'])
 
 
 
