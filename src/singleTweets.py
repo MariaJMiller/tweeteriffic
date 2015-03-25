@@ -12,12 +12,6 @@ from pymongo import MongoClient
 
 # Consumer Keys and access tokens for Twitter here #
 
-consumer_key = "OqTbVyeE37TJputftZDOCYztL"
-consumer_secret = "gV2BKEk9T9yfvLzZrtuJw67vpk3u1723eA1m85k4rDBUozQoum"
-
-access_token = "6639072-VuGMpH6lxNAz5EtrlTzrzDNAvFVnH3bUHQa4V23LIJ"
-access_token_secret = "fgcM9FvW9PBPDn1bxIGo9infQlZ7mmVW2L4tUSYPd0yXy"
-
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
