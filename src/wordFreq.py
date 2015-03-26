@@ -1,10 +1,18 @@
 # View words frequently associated with topic in Tweets
 
 import pandas as pd
-import plotly.plotly as py
-from plotly.graph_objs import *
+import nltk
+from nltk.corpus import stopwords
+from nltk import FreqDist
 
-db = pd.read_pickle('../data/thedress.pkl')
+tweets = pd.read_pickle('../data/valentine.pkl')
 
-textList = db["text"].toList()
+textList = tweets["text"]
+
+tokens = []
+
+for txt in textList:
+    tokens.extend([t.lower().strip(";,.") for t in txt.split()])
+
+#filtered_tokens = [w for w in tokens if not w in stopwords.words('english')]
 
