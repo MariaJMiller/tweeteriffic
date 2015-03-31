@@ -1,7 +1,9 @@
 # Import csv file and analyze using pandas
 
 import pandas as pd
-
+from nltk.corpus import stopwords
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 from pandas.tseries.offsets import DateOffset
 
 # Import file
@@ -15,10 +17,6 @@ tweets.index = tweets.index - DateOffset(hours = 12)
 
 # Save the pandas dataframe.
 tweets.to_pickle('../data/valentine.pkl')
-
-
-
-
 
 
 

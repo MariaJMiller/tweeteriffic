@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 # View words frequently associated with topic in Tweets
 
 import pandas as pd
@@ -9,7 +11,14 @@ from wordcloud import WordCloud
 # Get tweets previously saved.
 tweets = pd.read_pickle('../data/valentine.pkl')
 
-textList = tweets["text"]
+words = ' '.join(tweets['text'])
+
+# remove URLs, RTs, and twitter handles
+no_urls_no_tags = " ".join([word for word in words.split()
+                            if 'http' not in word
+                                and not word.startswith('@')
+                                and word != 'RT'
+                            ])
 
 stop = set(stopwords.words('english'))
 
@@ -18,19 +27,17 @@ stop.add('&amp')
 stop.add('rt')
 stop.add("it's")
 
+# Create word cloud.
 word_cloud = WordCloud(
-    font_path='/Users/MariaJ/Library/Fonts/Zapfino.ttf',
-    stopwords=stop,
-    background_color='black',
-    width=1800,
-    height=1400
-).generate(textList)
+  font_path='/Users/MariaJ/Library/Fonts/NASHVILL.TTF'
+  ).generate(no_urls_no_tags)
 plt.imshow(word_cloud)
 plt.axis('off')
 plt.savefig('./word_cloud_first', dpi=300)
 plt.show()
 
 
+# Create a frequency distribution for tweets.
 # tokens = []
 #
 # # Remove some punctuation.
