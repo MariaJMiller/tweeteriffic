@@ -3,6 +3,8 @@
 import pandas as pd
 import nltk
 from nltk.corpus import stopwords
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
 # Get tweets previously saved.
 tweets = pd.read_pickle('../data/valentine.pkl')
@@ -16,20 +18,32 @@ stop.add('&amp')
 stop.add('rt')
 stop.add("it's")
 
-tokens = []
+word_cloud = WordCloud(
+    font_path='/Users/MariaJ/Library/Fonts/Zapfino.ttf',
+    stopwords=stop,
+    background_color='black',
+    width=1800,
+    height=1400
+).generate(textList)
+plt.imshow(word_cloud)
+plt.axis('off')
+plt.savefig('./word_cloud_first', dpi=300)
+plt.show()
 
-# Remove some punctuation.
-for txt in textList:
-    tokens.extend([t.lower().strip(";,.") for t in txt.split()])
 
-# Remove stop words.
-filtered_tokens = [w for w in tokens if not w in stop]
-
-# Create a frequency distribution of words.
-freq_dist = nltk.FreqDist(filtered_tokens)
-
-# Get the top 50 most frequently tweeted words.
-top_words = freq_dist.most_common(50)
-
+# tokens = []
+#
+# # Remove some punctuation.
+# for txt in textList:
+#     tokens.extend([t.lower().strip(";,.") for t in txt.split()])
+#
+# # Remove stop words.
+# filtered_tokens = [w for w in tokens if not w in stop]
+#
+# # Create a frequency distribution of words.
+# freq_dist = nltk.FreqDist(filtered_tokens)
+#
+# # Get the top 50 most frequently tweeted words.
+# top_words = freq_dist.most_common(50)
 
 
