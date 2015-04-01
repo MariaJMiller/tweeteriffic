@@ -37,11 +37,11 @@ stop.add("valentine's")
 
 # Create word cloud.
 word_cloud = WordCloud(
-  font_path='/Users/MariaJ/Library/Fonts/NASHVILL.TTF',
+  font_path='/Users/MariaJ/Library/Fonts/BD_Cartoon_Shout.ttf',
   stopwords=stop,
-  background_color='white',
-  width=2000,
-  height=1800,
+  background_color='black',
+  width=2500,
+  height=2300,
   mask=heart_mask
   ).generate(no_urls_no_tags)
 plt.imshow(word_cloud)
