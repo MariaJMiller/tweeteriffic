@@ -39,14 +39,14 @@ stop.add("valentine's")
 word_cloud = WordCloud(
   font_path='/Users/MariaJ/Library/Fonts/BD_Cartoon_Shout.ttf',
   stopwords=stop,
-  background_color='black',
+  background_color='white',
   width=2500,
   height=2300,
   mask=heart_mask
   ).generate(no_urls_no_tags)
 plt.imshow(word_cloud)
 plt.axis('off')
-plt.savefig('../images/valentine.png', dpi=300)
+plt.savefig('../images/valentine_block.png', dpi=300)
 plt.show()
 
 
