@@ -7,10 +7,12 @@ import nltk
 from nltk.corpus import stopwords
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
+from scipy.misc import imread
 
 # Get tweets previously saved.
 tweets = pd.read_pickle('../data/valentine.pkl')
 
+# Create single string from tweets.
 words = ' '.join(tweets['text'])
 
 # remove URLs, RTs, and twitter handles
@@ -22,18 +24,29 @@ no_urls_no_tags = " ".join([word for word in words.split()
 
 stop = set(stopwords.words('english'))
 
+# Import image for mask
+# http://www.stencilry.org/stencils/symbols/hearts/heart+1.jpg
+heart_mask = imread('../images/heart.png', flatten=True)
+
 # Add stopwords not included in nltk corpus.
 stop.add('&amp')
+stop.add('amp')
 stop.add('rt')
 stop.add("it's")
+stop.add("valentine's")
 
 # Create word cloud.
 word_cloud = WordCloud(
-  font_path='/Users/MariaJ/Library/Fonts/NASHVILL.TTF'
+  font_path='/Users/MariaJ/Library/Fonts/NASHVILL.TTF',
+  stopwords=stop,
+  background_color='white',
+  width=2000,
+  height=1800,
+  mask=heart_mask
   ).generate(no_urls_no_tags)
 plt.imshow(word_cloud)
 plt.axis('off')
-plt.savefig('./word_cloud_first', dpi=300)
+plt.savefig('../images/valentine.png', dpi=300)
 plt.show()
 
 
