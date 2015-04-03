@@ -1,4 +1,5 @@
-#Create a frequency distribution for tweets.
+# Create a frequency distribution for tweets.
+
 import pandas as pd
 import nltk
 from nltk.corpus import stopwords

@@ -1,6 +1,5 @@
-#!/usr/bin/env python2
-
 # View words frequently associated with topic in Tweets
+# Create word cloud using module wordCloud
 
 import pandas as pd
 import nltk
@@ -34,7 +33,6 @@ stop.add('amp')
 stop.add('rt')
 stop.add("it's")
 stop.add('-')
-stop.add('fuck')
 stop.add('WhyImSingle')
 # stop.add("valentine's")
 

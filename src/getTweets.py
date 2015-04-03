@@ -1,4 +1,3 @@
-
 # A Social Media Data Mining Project Using Twitter
 # Maria Miller - mjm191@zips.uakron.edu
 
