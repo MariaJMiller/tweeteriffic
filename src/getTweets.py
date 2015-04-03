@@ -1,10 +1,6 @@
 
-'''
-Maria Miller - mjm191@zips.uakron.edu
-Idea for this project from:
-http://www.danielforsyth.me/analyzing-a-nhl-playoff-game-with-twitter/
-'''
-
+# A Social Media Data Mining Project Using Twitter
+# Maria Miller - mjm191@zips.uakron.edu
 
 import tweepy
 import pymongo

@@ -35,6 +35,7 @@ stop.add('rt')
 stop.add("it's")
 stop.add('-')
 stop.add('fuck')
+stop.add('WhyImSingle')
 # stop.add("valentine's")
 
 # Create word cloud.
